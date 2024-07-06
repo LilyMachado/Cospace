@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :users, only: [:index, :show, :new, :create] # Including all necessary actions for users
-  resources :products
+  resources :workspaces, controller: 'workspace' do
+    member do
+      get 'availability', to: 'workspace#edit_availability'
+      patch 'availability', to: 'workspace#update_availability'
+    end
+    resources :reviews, only: [:index, :new, :create]
+  end
+  resources :bookings
+  resources :users, only: [:new, :create, :index, :show]
 
-  get 'signup', to: 'users#new'
-  post 'signup', to: 'users#create'
-
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
-
-  root 'products#index'
+  root 'workspace#index'
 end

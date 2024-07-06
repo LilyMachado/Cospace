@@ -1,0 +1,27 @@
+<p>
+  <strong>Name:</strong>
+  <%= @workspace.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @workspace.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @workspace.location %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @workspace.price %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @workspace.availability %>
+</p>
+
+<%= link_to 'Edit', edit_workspace_path(@workspace) %> |
+<%= link_to 'Back', workspaces_path %>
