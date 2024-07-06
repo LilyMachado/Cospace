@@ -1,14 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
+<!-- app/views/users/index.html.erb -->
 <h1>Users</h1>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New user", new_user_path %>
+<% @users.each do |user| %>
+  <div class="user">
+    <h2><%= link_to user.name, user %></h2>
+    <p><%= user.email %></p>
+  </div>
+<% end %>

@@ -1,30 +1,13 @@
 Rails.application.routes.draw do
-  resources :users, only: [:create] do
-    collection do
-      post :sign_up
-    end
-  end
+  resources :users, only: [:index, :show, :new, :create] # Including all necessary actions for users
+  resources :products
 
-  resources :users, only: [:create] do
-    collection do
-      post :login
-    end
-  end
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
 
-  resources :workspaces, except: [:new, :edit] do
-    member do
-      put :availability
-    end
-  end
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
-  resources :bookings, except: [:new, :edit] do
-    member do
-      get :confirmation
-      put :status
-      post :notify
-    end
-    collection do
-      get :notifications
-    end
-  end
+  root 'products#index'
 end
