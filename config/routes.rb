@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :workspaces, controller: 'workspace' do
+  resources :workspaces do
     member do
       get 'availability', to: 'workspace#edit_availability'
       patch 'availability', to: 'workspace#update_availability'
