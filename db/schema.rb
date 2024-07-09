@@ -10,32 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_06_065828) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_06_062239) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "products", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.decimal "price"
-    t.bigint "user_id", null: false
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "workspace_id"
+    t.datetime "start_time", precision: nil
+    t.datetime "end_time", precision: nil
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_products_on_user_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["workspace_id"], name: "index_bookings_on_workspace_id"
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "workspace_id"
     t.integer "rating"
-    t.string "comment"
-    t.date "date"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["workspace_id"], name: "index_reviews_on_workspace_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +57,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_06_065828) do
     t.index ["user_id"], name: "index_workspaces_on_user_id"
   end
 
-  add_foreign_key "products", "users"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "workspaces"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "workspaces"
   add_foreign_key "workspaces", "users"
 end
