@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :workspaces do
     member do
       get 'availability', to: 'workspace#edit_availability'
