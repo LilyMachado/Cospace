@@ -12,39 +12,39 @@
 require 'open-uri'
 
 coworking_spaces = [
-  {
-    name: "The Cluster",
-    description: "Stylish coworking space with stunning views and great amenities.",
-    location: "31 Queen St, Melbourne VIC 3000",
-    price: 50.0,
-    available_from: "2024-07-01",
-    available_to: "2024-12-31",
-    amenities: "Wi-Fi, Coffee, Meeting Rooms",
-    host: "Cluster Host",
-    image_url: "https://images.unsplash.com/photo-1552820728-8b83e51d4b6b"
-  },
-  {
-    name: "WeWork",
-    description: "Global coworking giant with multiple locations in Melbourne.",
-    location: "401 Collins St, Melbourne VIC 3000",
-    price: 75.0,
-    available_from: "2024-07-01",
-    available_to: "2024-12-31",
-    amenities: "Wi-Fi, Coffee, Meeting Rooms, Events",
-    host: "WeWork Host",
-    image_url: "https://images.unsplash.com/photo-1573497019414-307d3a22e9d4"
-  },
-  {
-    name: "CreativeCubes.Co",
-    description: "A vibrant coworking community with a focus on creativity.",
-    location: "111 Cecil St, South Melbourne VIC 3205",
-    price: 60.0,
-    available_from: "2024-07-01",
-    available_to: "2024-12-31",
-    amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Workshops",
-    host: "CreativeCubes Host",
-    image_url: "https://images.unsplash.com/photo-1564869734861-1f0d4c5ffbb6"
-  },
+  # {
+  #   name: "The Cluster",
+  #   description: "Stylish coworking space with stunning views and great amenities.",
+  #   location: "31 Queen St, Melbourne VIC 3000",
+  #   price: 50.0,
+  #   available_from: "2024-07-01",
+  #   available_to: "2024-12-31",
+  #   amenities: "Wi-Fi, Coffee, Meeting Rooms",
+  #   host: "Cluster Host",
+  #   image_url: "https://images.unsplash.com/photo-1552820728-8b83e51d4b6b"
+  # },
+  # {
+  #   name: "WeWork",
+  #   description: "Global coworking giant with multiple locations in Melbourne.",
+  #   location: "401 Collins St, Melbourne VIC 3000",
+  #   price: 75.0,
+  #   available_from: "2024-07-01",
+  #   available_to: "2024-12-31",
+  #   amenities: "Wi-Fi, Coffee, Meeting Rooms, Events",
+  #   host: "WeWork Host",
+  #   image_url: "https://images.unsplash.com/photo-1573497019414-307d3a22e9d4"
+  # },
+  # {
+  #   name: "CreativeCubes.Co",
+  #   description: "A vibrant coworking community with a focus on creativity.",
+  #   location: "111 Cecil St, South Melbourne VIC 3205",
+  #   price: 60.0,
+  #   available_from: "2024-07-01",
+  #   available_to: "2024-12-31",
+  #   amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Workshops",
+  #   host: "CreativeCubes Host",
+  #   image_url: "https://images.unsplash.com/photo-1564869734861-1f0d4c5ffbb6"
+  # },
   {
     name: "Inspire9",
     description: "A community-led coworking space fostering innovation and collaboration.",
@@ -125,6 +125,8 @@ coworking_spaces = [
 ]
 
 coworking_spaces.each do |space|
+  i=0
+  puts i
   workspace = Workspace.create!(
     name: space[:name],
     description: space[:description],
@@ -138,4 +140,5 @@ coworking_spaces.each do |space|
 
   file = URI.open(space[:image_url])
   workspace.photos.attach(io: file, filename: "#{space[:name].parameterize}.jpg")
+  i+=1
 end
