@@ -1,0 +1,16 @@
+<h1><%= @workspace.name %></h1>
+<p><%= @workspace.description %></p>
+<p>Price: <%= number_to_currency(@workspace.price) %></p>
+<p>Location: <%= @workspace.location %></p>
+<p>Available from: <%= @workspace.available_from %> to <%= @workspace.available_to %></p>
+<p>Amenities: <%= @workspace.amenities %></p>
+
+<h2>Photos</h2>
+<% if @workspace.photos.attached? %>
+  <% @workspace.photos.each do |photo| %>
+    <%= image_tag photo %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_workspace_path(@workspace) %> |
+<%= link_to 'Back', workspaces_path %>

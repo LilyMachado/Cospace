@@ -10,39 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_09_103502) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_12_060543) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "workspace_id"
     t.datetime "start_time", precision: nil
     t.datetime "end_time", precision: nil
     t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["workspace_id"], name: "index_bookings_on_workspace_id"
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "workspace_id"
     t.integer "rating"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["workspace_id"], name: "index_reviews_on_workspace_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "workspaces", force: :cascade do |t|
@@ -51,10 +51,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_103502) do
     t.string "location"
     t.decimal "price", precision: 10, scale: 2
     t.string "availability"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "available_from"
+    t.datetime "available_to"
+    t.text "amenities"
+    t.string "host"
+    t.index ["user_id"], name: "index_workspaces_on_user_id"
   end
 
+  add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "workspaces"
+  add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "workspaces"
+  add_foreign_key "workspaces", "users"
 end

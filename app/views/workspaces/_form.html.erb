@@ -1,0 +1,50 @@
+<h1><%= action_name.capitalize %> Workspace</h1>
+<%= form_with(model: @workspace, local: true) do |form| %>
+  <% if @workspace.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workspace.errors.count, "error") %> prohibited this workspace from being saved:</h2>
+      <ul>
+        <% @workspace.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :price %><br>
+    <%= form.text_field :price %>
+  </div>
+  <div>
+    <%= form.label :location %><br>
+    <%= form.text_field :location %>
+  </div>
+  <div>
+    <%= form.label :available_from %><br>
+    <%= form.date_select :available_from %>
+  </div>
+  <div>
+    <%= form.label :available_to %><br>
+    <%= form.date_select :available_to %>
+  </div>
+  <div>
+    <%= form.label :amenities %><br>
+    <%= form.text_area :amenities %>
+  </div>
+  <div>
+    <%= form.label :photos %><br>
+    <%= form.file_field :photos, multiple: true, direct_upload: true %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Back', workspaces_path %>

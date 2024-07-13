@@ -1,12 +1,15 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
-
-// External libraries
 @import "bootstrap";
 @import "font-awesome";
+@import "components/navbar";
+@import "components/card";
+@import "components/forms";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
+body {
+  background-color: #f7f7f7;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

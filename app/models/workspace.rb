@@ -1,8 +1,5 @@
-# app/models/workspace.rb
-class Workspace < ApplicationRecord
-  belongs_to :user
-  has_many :bookings, dependent: :destroy
-  has_many :reviews, dependent: :destroy
 
-  validates :name, :description, :location, :price, :availability, presence: true
+class Workspace < ApplicationRecord
+  has_many_attached :photos
+  validates :name, :description, :price, :location, :available_from, :available_to, :amenities, presence: true
 end

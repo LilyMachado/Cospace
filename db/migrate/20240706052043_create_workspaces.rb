@@ -1,11 +1,13 @@
-class CreateWorkspaces < ActiveRecord::Migration[6.0]
+class CreateWorkspaces < ActiveRecord::Migration[6.1]
   def change
     create_table :workspaces do |t|
       t.string :name
       t.text :description
-      t.string :location
       t.decimal :price, precision: 10, scale: 2
-      t.string :availability
+      t.string :location
+      t.datetime :available_from
+      t.datetime :available_to
+      t.text :amenities
 
       t.timestamps
     end

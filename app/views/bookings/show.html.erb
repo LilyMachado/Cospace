@@ -1,0 +1,8 @@
+<h1>Booking Details</h1>
+<p>Workspace: <%= link_to @booking.workspace.name, @booking.workspace %></p>
+<p>User: <%= @booking.user.name %></p>
+<p>Start Date: <%= @booking.start_date %></p>
+<p>End Date: <%= @booking.end_date %></p>
+<p>Status: <%= @booking.status %></p>
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

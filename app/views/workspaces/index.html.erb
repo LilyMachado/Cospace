@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Available Workspaces</h1>
+  <div class="row">
+    <% @workspaces.each do |workspace| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <%= image_tag(workspace.image_url, class: "card-img-top") if workspace.image_url.present? %>
+          <div class="card-body">
+            <h5 class="card-title"><%= workspace.name %></h5>
+            <p class="card-text"><%= truncate(workspace.description, length: 100) %></p>
+            <%= link_to 'View Details', workspace, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
