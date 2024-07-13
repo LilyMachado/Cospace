@@ -6,11 +6,13 @@
 <p>Amenities: <%= @workspace.amenities %></p>
 
 <h2>Photos</h2>
-<% if @workspace.photos.attached? %>
+<div>
+
+  <% if @workspace.photos.attached? %>
   <% @workspace.photos.each do |photo| %>
     <%= image_tag photo %>
   <% end %>
-<% end %>
+<% end %></div>
 
 <%= link_to 'Edit', edit_workspace_path(@workspace) %> |
 <%= link_to 'Back', workspaces_path %>
