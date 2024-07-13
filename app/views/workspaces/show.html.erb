@@ -1,18 +1,47 @@
-<h1><%= @workspace.name %></h1>
-<p><%= @workspace.description %></p>
-<p>Price: <%= number_to_currency(@workspace.price) %></p>
-<p>Location: <%= @workspace.location %></p>
-<p>Available from: <%= @workspace.available_from %> to <%= @workspace.available_to %></p>
-<p>Amenities: <%= @workspace.amenities %></p>
+<!-- app/views/workspaces/show.html.erb -->
+<h1 class="workspace-title"><%= @workspace.name %></h1>
+<p class="workspace-description"><%= @workspace.description %></p>
+<p class="workspace-price">Price: <%= number_to_currency(@workspace.price) %></p>
+<p class="workspace-location">Location: <%= @workspace.location %></p>
+<p class="workspace-availability">Available from: <%= @workspace.available_from %> to <%= @workspace.available_to %></p>
+<p class="workspace-amenities">Amenities: <%= @workspace.amenities %></p>
 
-<h2>Photos</h2>
-<div>
-
+<h2 class="photos-title">Photos</h2>
+<div class="photo-gallery" id="photo-gallery">
   <% if @workspace.photos.attached? %>
-  <% @workspace.photos.each do |photo| %>
-    <%= image_tag photo %>
+    <% @workspace.photos.each do |photo| %>
+      <div class="photo-container">
+        <%= image_tag photo, class: 'photo' %>
+      </div>
+    <% end %>
   <% end %>
-<% end %></div>
+</div>
 
-<%= link_to 'Edit', edit_workspace_path(@workspace) %> |
-<%= link_to 'Back', workspaces_path %>
+<div class="workspace-actions">
+  <%= link_to 'Edit', edit_workspace_path(@workspace), class: 'btn btn-warning' %> |
+  <%= link_to 'Back', workspaces_path, class: 'btn btn-secondary' %>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const photoGallery = document.getElementById('photo-gallery');
+
+  // Fetch additional photos from the API
+  fetch('/api/workspace_photos')
+    .then(response => response.json())
+    .then(data => {
+      data.photos.forEach(photoUrl => {
+        const photoContainer = document.createElement('div');
+        photoContainer.className = 'photo-container';
+
+        const img = document.createElement('img');
+        img.src = photoUrl;
+        img.className = 'photo';
+
+        photoContainer.appendChild(img);
+        photoGallery.appendChild(photoContainer);
+      });
+    })
+    .catch(error => console.error('Error fetching photos:', error));
+});
+</script>
