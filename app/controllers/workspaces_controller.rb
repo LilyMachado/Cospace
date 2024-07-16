@@ -1,10 +1,14 @@
-# app/controllers/workspaces_controller.rb
-
 class WorkspacesController < ApplicationController
   before_action :set_workspace, only: [:show, :edit, :update, :destroy, :edit_availability, :update_availability]
 
   def index
-    @workspaces = Workspace.all
+    # If a location is provided in the search, find workspaces near the location within a 10 km radius
+    if params[:location].present?
+      @workspaces = Workspace.near(params[:location], 10) # 10 km radius
+    else
+      # If no location is provided, display all workspaces
+      @workspaces = Workspace.all
+    end
   end
 
   def new
@@ -58,9 +62,5 @@ class WorkspacesController < ApplicationController
 
   def workspace_params
     params.require(:workspace).permit(:name, :description, :price, :location, :amenities, :available_from, :available_to, :host, photos: [])
-  end
-
-  def availability_params
-    params.require(:workspace).permit(:available_from, :available_to)
   end
 end

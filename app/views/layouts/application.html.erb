@@ -6,27 +6,35 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <!-- Include Bootstrap CSS -->
+  <!-- Include Bootstrap CSS for styling and layout -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-  <!-- Include Font Awesome -->
+  <!-- Include Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- Include Application CSS -->
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
-  <!-- Include JavaScript -->
+  <!-- Include Mapbox CSS -->
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+  <!-- Include JavaScript via Importmap (Rails 7 feature) -->
   <%= javascript_importmap_tags %>
 
-<!-- Include Workspaces Layout -->
-  <%= stylesheet_link_tag 'workspaces', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-<!-- Include Workspace Layout -->
-<%= stylesheet_link_tag 'workspace', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+  <!-- Include Mapbox JS -->
+  <%= javascript_include_tag 'https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js' %>
 </head>
 <body>
+  <!-- Render shared navbar partial -->
   <%= render "shared/navbar" %>
+
+  <!-- Render shared flash messages partial -->
   <%= render "shared/flashes" %>
+
+  <!-- Main content of the page -->
   <%= yield %>
+
+  <!-- Include Bootstrap JS for interactive components -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+</html>
