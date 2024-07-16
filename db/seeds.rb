@@ -8,7 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
 require 'open-uri'
 Workspace.destroy_all
 coworking_spaces = [
@@ -125,7 +124,7 @@ coworking_spaces = [
 ]
 
 coworking_spaces.each do |space|
-  i=0
+  i = 0
   puts i
   workspace = Workspace.create!(
     name: space[:name],
@@ -140,5 +139,5 @@ coworking_spaces.each do |space|
 
   file = URI.open(space[:image_url])
   workspace.photos.attach(io: file, filename: "#{space[:name].parameterize}.jpg")
-  i+=1
+  i += 1
 end

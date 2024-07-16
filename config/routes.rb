@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/index'
   devise_for :users
   resources :workspaces do
     member do
@@ -10,5 +11,5 @@ Rails.application.routes.draw do
   resources :bookings
   resources :users, only: [:new, :create, :index, :show]
 
-  root 'workspace#index'
+  root 'home#index'
 end
