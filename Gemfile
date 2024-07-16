@@ -82,3 +82,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'geocoder'
+gem 'leaflet-rails'
