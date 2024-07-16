@@ -17,6 +17,13 @@
 
   <!-- Include JavaScript -->
   <%= javascript_importmap_tags %>
+
+<!-- Include Workspaces Layout -->
+  <%= stylesheet_link_tag 'workspaces', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<!-- Include Workspace Layout -->
+<%= stylesheet_link_tag 'workspace', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 </head>
 <body>
   <%= render "shared/navbar" %>

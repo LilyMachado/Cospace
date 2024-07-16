@@ -9,7 +9,7 @@
 #   end
 
 require 'open-uri'
-
+Workspace.destroy_all
 coworking_spaces = [
   # {
   #   name: "The Cluster",
@@ -53,7 +53,7 @@ coworking_spaces = [
     available_to: "2024-12-31",
     amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Mentorship",
     host: "Inspire9 Host",
-    image_url: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2"
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836522/creativecubes-office-10_txqzwm.jpg"
   },
   {
     name: "Hub Australia",
@@ -64,7 +64,7 @@ coworking_spaces = [
     available_to: "2024-12-31",
     amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Wellness Programs",
     host: "Hub Australia Host",
-    image_url: "https://images.unsplash.com/photo-1540574163026-643ea20ade25"
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836521/QV-Amphitheatre_ssiebm.jpg"
   },
   {
     name: "Spaces",
@@ -75,7 +75,7 @@ coworking_spaces = [
     available_to: "2024-12-31",
     amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Networking",
     host: "Spaces Host",
-    image_url: "https://images.unsplash.com/photo-1557804506-669a67965ba0"
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836521/224a4c5e-d5cd-11e9-b5b7-0a80a47aa582_0_t8odwl.jpg"
   },
   {
     name: "The Commons",
@@ -86,7 +86,7 @@ coworking_spaces = [
     available_to: "2024-12-31",
     amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Wellness Programs",
     host: "The Commons Host",
-    image_url: "https://images.unsplash.com/photo-1492724441997-5dc865305da8"
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836521/spaces-coworking-rialto-office-11_min9bl.jpg"
   },
   {
     name: "Gravity Coworking",
@@ -97,7 +97,7 @@ coworking_spaces = [
     available_to: "2024-12-31",
     amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Networking",
     host: "Gravity Host",
-    image_url: "https://images.unsplash.com/photo-1533631132370-9cbeb5e04a59"
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836520/Web_72DPI-20180801_WeWork_152_Elizabeth_Street__7_eftg1p.jpg"
   },
   {
     name: "York Butter Factory",
@@ -108,7 +108,7 @@ coworking_spaces = [
     available_to: "2024-12-31",
     amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Mentorship",
     host: "York Butter Host",
-    image_url: "https://images.unsplash.com/photo-1560264418-b6efb6aa01d4"
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836520/space-co-melbourne-coworking-mm-1_pvxsb6.jpg"
   },
   {
     name: "WOTSO WorkSpace",
@@ -119,7 +119,7 @@ coworking_spaces = [
     available_to: "2024-12-31",
     amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Networking",
     host: "WOTSO Host",
-    image_url: "https://images.unsplash.com/photo-1593642634367-d91a135587b5"
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836519/the-cluster-melbourne-victoria-coworking-space-1024x682_lmo7zc.jpg"
   }
 ]
 
