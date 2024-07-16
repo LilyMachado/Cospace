@@ -23,10 +23,11 @@
         <td><%= workspace.description %></td>
         <td><%= workspace.location %></td>
         <td><%= workspace.price %></td>
-        <td><%= workspace.available_from %></td>
-        <td><%= link_to 'Show', workspace, class: 'btn btn-secondary' %></td>
-        <td><%= link_to 'Edit', edit_workspace_path(workspace), class: 'btn btn-warning' %></td>
-        <td><%= link_to 'Remove', workspace, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+
+        <td><%= workspace.available_to %></td>
+        <td><%= link_to 'Show', workspace %></td>
+        <td><%= link_to 'Edit', edit_workspace_path(workspace) %></td>
+        <td><%= link_to 'Destroy', workspace, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
