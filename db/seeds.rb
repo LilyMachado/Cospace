@@ -116,7 +116,7 @@ coworking_spaces = [
 
 coworking_spaces.each do |space|
 
-  workspace = Workspace.new!(
+  workspace = Workspace.new(
     name: space[:name],
     description: space[:description],
     location: space[:location],
