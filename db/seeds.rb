@@ -129,4 +129,4 @@ coworking_spaces.each do |space|
 
   file = URI.open(space[:image_url])
   workspace.photos.attach(io: file, filename: "#{space[:name].parameterize}.jpg")
-
+end
