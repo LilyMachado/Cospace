@@ -92,3 +92,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_13_024926) do
   add_foreign_key "bookings", "workspaces"
   add_foreign_key "reviews", "workspaces"
 end
+
