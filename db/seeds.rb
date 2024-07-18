@@ -114,9 +114,9 @@ coworking_spaces = [
 ]
 
 coworking_spaces.each do |space|
-
-  workspace = Workspace.new(
-
+  i = 0
+  puts i
+  workspace = Workspace.create!(
     name: space[:name],
     description: space[:description],
     location: space[:location],
@@ -129,4 +129,5 @@ coworking_spaces.each do |space|
 
   file = URI.open(space[:image_url])
   workspace.photos.attach(io: file, filename: "#{space[:name].parameterize}.jpg")
+  i += 1
 end
