@@ -75,7 +75,7 @@ coworking_spaces = [
     available_to: "2024-12-31",
     amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Networking",
     host: "Spaces Host",
-    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836521/spaces-coworking-rialto-office-11_min9bl.jpg"
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836521/224a4c5e-d5cd-11e9-b5b7-0a80a47aa582_0_t8odwl.jpg"
   },
   {
     name: "The Commons",
@@ -110,7 +110,17 @@ coworking_spaces = [
     host: "York Butter Host",
     image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836520/space-co-melbourne-coworking-mm-1_pvxsb6.jpg"
   },
-
+  {
+    name: "WOTSO WorkSpace",
+    description: "Flexible coworking spaces for growing businesses.",
+    location: "123 Queen St, Melbourne VIC 3000",
+    price: 50.0,
+    available_from: "2024-07-01",
+    available_to: "2024-12-31",
+    amenities: "Wi-Fi, Coffee, Meeting Rooms, Events, Networking",
+    host: "WOTSO Host",
+    image_url: "https://res.cloudinary.com/dwgushwh4/image/upload/v1720836519/the-cluster-melbourne-victoria-coworking-space-1024x682_lmo7zc.jpg"
+  }
 ]
 
 coworking_spaces.each do |space|
