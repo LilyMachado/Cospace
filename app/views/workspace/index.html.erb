@@ -1,34 +1,37 @@
-<h1>Workspaces</h1>
+<div class="container mt-5">
+  <div class="card p-4">
+    <h1 class="title"><%= @workspace.name %></h1>
 
-<div class="actions">
-  <%= link_to 'New Workspace', new_workspace_path, class: 'btn btn-primary' %>
+    <div class="workspace-details mt-4">
+      <p class="workspace-description">
+        <strong>Description:</strong>
+        <%= @workspace.description %>
+      </p>
+
+      <p class="workspace-location">
+        <strong>Location:</strong>
+        <%= @workspace.location %>
+      </p>
+
+      <p class="workspace-price">
+        <strong>Price:</strong>
+        <%= @workspace.price %>
+      </p>
+
+      <p class="workspace-availability">
+        <strong>Availability:</strong>
+        <%= @workspace.available_from %> to <%= @workspace.available_to %>
+      </p>
+
+      <p class="workspace-amenities">
+        <strong>Amenities:</strong>
+        <%= @workspace.amenities %>
+      </p>
+    </div>
+
+    <div class="actions mt-4">
+      <%= link_to 'Edit', edit_workspace_path(@workspace), class: 'btn btn-warning' %>
+      <%= link_to 'Back', workspaces_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
 </div>
-
-<table class="workspaces-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Price</th>
-      <th>Availability</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @workspaces.each do |workspace| %>
-      <tr>
-        <td><%= workspace.name %></td>
-        <td><%= workspace.description %></td>
-        <td><%= workspace.location %></td>
-        <td><%= workspace.price %></td>
-
-        <td><%= workspace.available_to %></td>
-        <td><%= link_to 'Show', workspace %></td>
-        <td><%= link_to 'Edit', edit_workspace_path(workspace) %></td>
-        <td><%= link_to 'Destroy', workspace, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

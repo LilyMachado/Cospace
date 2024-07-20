@@ -1,6 +1,5 @@
-
 body {
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -13,7 +12,72 @@ body {
 h1 {
   text-align: center;
   margin-top: 20px;
-  color: #eceaf3;
+  color: #f1f1f1;
+}
+
+#workspace-form {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+}
+
+#workspace-form div {
+  margin-bottom: 15px;
+}
+
+#workspace-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#workspace-form input[type="text"],
+#workspace-form input[type="date"],
+#workspace-form textarea {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#workspace-form textarea {
+  resize: vertical;
+}
+
+#workspace-form input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#workspace-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+#error_explanation {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+#error_explanation h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+#error_explanation ul {
+  margin: 0;
+  padding-left: 20px;
 }
 
 .actions {
@@ -21,36 +85,35 @@ h1 {
   margin-bottom: 20px;
 }
 
-.btn {
+.actions a {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   text-decoration: none;
   color: white;
-  display: inline-block;
   margin: 5px;
   cursor: pointer;
 }
 
-.btn-primary {
+.actions .btn-primary {
   background-color: #007bff;
 }
 
-.btn-secondary {
+.actions .btn-secondary {
   background-color: #6c757d;
 }
 
-.btn-warning {
+.actions .btn-warning {
   background-color: #ffc107;
 }
 
-.btn-danger {
+.actions .btn-danger {
   background-color: #dc3545;
 }
 
 .workspaces-table {
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
   border-collapse: collapse;
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -73,4 +136,146 @@ h1 {
 
 .workspaces-table tr:hover {
   background-color: #f1f1f1;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f4f4f4;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #f1f1f1, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.workspace-details-container {
+  background: #f1f1f1; /* White background */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.workspace-details {
+  padding: 15px;
+}
+
+.workspace-description,
+.workspace-price,
+.workspace-location,
+.workspace-availability,
+.workspace-amenities {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333; /* Dark text color */
+  line-height: 1.6; /* Improved line spacing */
+}
+
+.workspace-description strong,
+.workspace-price strong,
+.workspace-location strong,
+.workspace-availability strong,
+.workspace-amenities strong {
+  display: block;
+  font-size: 1.1em;
+  color: #007bff; /* Accent color for strong text */
+  margin-bottom: 5px;
+}
+
+.photo-container {
+  background: #1f1f1f; /* Dark background */
+  border: 1px solid #444; /* Darker border */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  width: 300px; /* Increased width */
+  height: 300px; /* Increased height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px; /* Add padding to create space for the border */
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: 3px solid #ccc; /* Add a border to the photo */
+  border-radius: 8px;
+}
+
+.workspace-actions {
+  text-align: center;
+  margin: 20px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-warning {
+  background-color: #ff9800;
+}
+
+.btn-warning:hover {
+  background-color: #ffb74d;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #868e96;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #e57373;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .card {
+    padding: 15px;
+  }
 }
