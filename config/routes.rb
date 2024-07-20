@@ -8,10 +8,9 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [:index, :new, :create]
   end
-  resources :bookings,
+  resources :bookings
   resources :users, only: [:new, :create, :index, :show]
 
   root 'home#index'
 end
-
 
