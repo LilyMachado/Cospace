@@ -1,15 +1,72 @@
-<h1>Edit Availability for <%= @workspace.name %></h1>
-<%= form_with(model: @workspace, url: availability_workspace_path(@workspace), local: true) do |form| %>
-  <div>
-    <%= form.label :available_from %><br>
-    <%= form.date_select :available_from %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Availability</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+    }
+    h1 {
+      margin-bottom: 1.5rem;
+      color: #343a40;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+    .btn-secondary {
+      border: none;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="form-container">
+          <h1 class="text-center">Edit Availability for <%= @workspace.name %></h1>
+          <%= form_with(model: @workspace, url: availability_workspace_path(@workspace), local: true, html: { class: 'form-horizontal' }) do |form| %>
+            <div class="form-group row">
+              <%= form.label :available_from, class: 'col-sm-3 col-form-label' %>
+              <div class="col-sm-9">
+                <%= form.date_select :available_from, {}, { class: 'form-control' } %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <%= form.label :available_to, class: 'col-sm-3 col-form-label' %>
+              <div class="col-sm-9">
+                <%= form.date_select :available_to, {}, { class: 'form-control' } %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-9 offset-sm-3">
+                <%= form.submit 'Update Availability', class: 'btn btn-primary btn-block' %>
+              </div>
+            </div>
+          <% end %>
+          <div class="text-center mt-3">
+            <%= link_to 'Back', @workspace, class: 'btn btn-secondary' %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= form.label :available_to %><br>
-    <%= form.date_select :available_to %>
-  </div>
-  <div>
-    <%= form.submit 'Update Availability' %>
-  </div>
-<% end %>
-<%= link_to 'Back', @workspace %>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
