@@ -4,9 +4,20 @@ class WorkspaceController < ApplicationController
 
   def index
     @workspaces = Workspace.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @workspaces, methods: [:latitude, :longitude] }
+    end
   end
 
+
   def show
+    @workspace = Workspace.find(params[:id])  
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @workspace }
+    end
   end
 
   def new

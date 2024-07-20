@@ -1,6 +1,17 @@
 <!-- app/views/workspaces/show.html.erb -->
-<h1 class="workspace-title"><%= @workspace.name %></h1>
-<p class="workspace-description"><%= @workspace.description %></p>
+<h1 id="welcome-message" class="workspace-title">
+  <%= @workspace.name %>
+</h1>
+<style>
+  #welcome-message {
+    color: black;
+  }
+</style>
+<div class="workspace-box glass-effect">
+  <!-- Content here -->
+</div>
+<%= stylesheet_link_tag 'workspaces', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <p class="workspace-price">Price: <%= number_to_currency(@workspace.price) %></p>
 <p class="workspace-location">Location: <%= @workspace.location %></p>
 <p class="workspace-availability">Available from: <%= @workspace.available_from %> to <%= @workspace.available_to %></p>
