@@ -1,36 +1,34 @@
-<!-- app/views/workspaces/show.html.erb -->
-<h1 id="welcome-message" class="workspace-title">
-  <%= @workspace.name %>
-</h1>
-<style>
-  #welcome-message {
-    color: black;
-  }
-</style>
-<div class="workspace-box glass-effect">
-  <!-- Content here -->
-</div>
-<%= stylesheet_link_tag 'workspaces', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="container mt-5">
+  <div class="card p-4">
+    <h1 id="welcome-message" class="workspace-title">
+      <%= @workspace.name %>
+    </h1>
 
-<p class="workspace-price">Price: <%= number_to_currency(@workspace.price) %></p>
-<p class="workspace-location">Location: <%= @workspace.location %></p>
-<p class="workspace-availability">Available from: <%= @workspace.available_from %> to <%= @workspace.available_to %></p>
-<p class="workspace-amenities">Amenities: <%= @workspace.amenities %></p>
-
-<h2 class="photos-title">Photos</h2>
-<div class="photo-gallery" id="photo-gallery">
-  <% if @workspace.photos.attached? %>
-    <% @workspace.photos.each do |photo| %>
-      <div class="photo-container">
-        <%= image_tag photo, class: 'photo' %>
+    <div class="workspace-details-container mt-4">
+      <div class="workspace-details">
+        <p class="workspace-price"><strong>Price:</strong> <%= number_to_currency(@workspace.price) %></p>
+        <p class="workspace-location"><strong>Location:</strong> <%= @workspace.location %></p>
+        <p class="workspace-availability"><strong>Available from:</strong> <%= @workspace.available_from %> to <%= @workspace.available_to %></p>
+        <p class="workspace-amenities"><strong>Amenities:</strong> <%= @workspace.amenities %></p>
       </div>
-    <% end %>
-  <% end %>
-</div>
+    </div>
 
-<div class="workspace-actions">
-  <%= link_to 'Edit', edit_workspace_path(@workspace), class: 'btn btn-warning' %> |
-  <%= link_to 'Back', workspaces_path, class: 'btn btn-secondary' %>
+    <h2 class="photos-title">Photos</h2>
+    <div class="photo-gallery" id="photo-gallery">
+      <% if @workspace.photos.attached? %>
+        <% @workspace.photos.each do |photo| %>
+          <div class="photo-container">
+            <%= image_tag photo, class: 'photo' %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="workspace-actions">
+      <%= link_to 'Edit', edit_workspace_path(@workspace), class: 'btn btn-warning' %> |
+      <%= link_to 'Back', workspaces_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
 </div>
 
 <script>

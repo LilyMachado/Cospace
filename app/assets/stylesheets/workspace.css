@@ -1,9 +1,8 @@
-/* workspace.css */
-
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text color */
   margin: 0;
   padding: 0;
 }
@@ -11,8 +10,24 @@ body {
 .workspace-title {
   text-align: center;
   margin-top: 20px;
-  font-size: 2em;
-  color: #333;
+  font-size: 2.5em;
+  color: #111111;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.workspace-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
 }
 
 .workspace-description,
@@ -22,14 +37,14 @@ body {
 .workspace-amenities {
   margin: 10px 20px;
   font-size: 1.2em;
-  color: #555;
+  color: #131212; /* Light grey text color */
 }
 
 .photos-title {
   text-align: center;
   margin-top: 30px;
   font-size: 1.5em;
-  color: #333;
+  color: #fff; /* White text color */
 }
 
 .photo-gallery {
@@ -41,10 +56,10 @@ body {
 }
 
 .photo-container {
-  background: white;
-  border: 1px solid #ddd;
+  background: #1f1f1f; /* Dark background */
+  border: 1px solid #444; /* Darker border */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   overflow: hidden;
   width: 300px; /* Increased width */
   height: 300px; /* Increased height */
@@ -77,6 +92,7 @@ body {
   display: inline-block;
   margin: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn-warning {
@@ -85,6 +101,11 @@ body {
 
 .btn-secondary {
   background-color: #6c757d;
+}
+
+.btn-warning:hover, .btn-secondary:hover {
+  background-color: #ffb74d; /* Lighter hover color for btn-warning */
+  background-color: #868e96; /* Lighter hover color for btn-secondary */
 }
 
 /* Media Queries for Responsive Design */
