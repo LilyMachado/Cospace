@@ -1,20 +1,60 @@
-<h2>Log in</h2>
+<h2 class="text-center my-4 text-white">Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-form mx-auto' }) do |f| %>
+  <div class="form-inputs mb-3">
+    <div class="mb-3">
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  label: "Email",
+                  input_html: { autocomplete: "email", class: 'form-control text-black' },
+                  wrapper_html: { class: 'mb-3' } %>
+    </div>
+    <div class="mb-3">
+      <%= f.input :password,
+                  required: false,
+                  label: "Password",
+                  input_html: { autocomplete: "current-password", class: 'form-control text-black' },
+                  wrapper_html: { class: 'mb-3' } %>
+    </div>
+    <div class="form-check mb-3">
+      <%= f.input :remember_me, as: :boolean, label: "Remember me", input_html: { class: 'form-check-input' } if devise_mapping.rememberable? %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="form-actions text-center">
+    <%= f.button :submit, "Log in", class: 'btn btn-primary w-100' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="text-center mt-3">
+  <%= render "devise/shared/links" %>
+</div>
+
+<style>
+  .login-form {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .form-control {
+    border-radius: 4px;
+    color: #000;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .form-check-input {
+    margin-top: 0.3rem;
+  }
+  .text-black {
+    color: #000 !important;
+  }
+  .text-white {
+    color: #fff !important;
+  }
+</style>
